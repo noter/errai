@@ -38,7 +38,7 @@ public class BigIntegerMarshaller extends AbstractNullableMarshaller<BigInteger>
   }
   
   @Override
-  public BigInteger[] getEmptyArray() {
+  public BigInteger[] getEmptyArray(MarshallingSession ctx) {
     return EMPTY_ARRAY;
   }
   

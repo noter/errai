@@ -38,7 +38,7 @@ public class TimestampMarshaller extends AbstractNullableMarshaller<Timestamp> {
   }
   
   @Override
-  public Timestamp[] getEmptyArray() {
+  public Timestamp[] getEmptyArray(MarshallingSession ctx) {
     return EMPTY_ARRAY;
   }
 

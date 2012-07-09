@@ -43,7 +43,7 @@ public class StringBufferMarshaller extends AbstractNullableMarshaller<StringBuf
   }
   
   @Override
-  public StringBuffer[] getEmptyArray() {
+  public StringBuffer[] getEmptyArray(MarshallingSession ctx) {
     return EMPTY_ARRAY;
   }
 

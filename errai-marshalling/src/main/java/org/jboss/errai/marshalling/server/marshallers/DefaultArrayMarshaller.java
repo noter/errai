@@ -121,7 +121,7 @@ public class DefaultArrayMarshaller implements Marshaller<Object> {
   }
 
   @Override
-  public Object[] getEmptyArray() {
+  public Object[] getEmptyArray(MarshallingSession ctx) {
     return (Object[]) Array.newInstance(arrayType.getOuterComponentType().asClass(), 0);
   }
 }

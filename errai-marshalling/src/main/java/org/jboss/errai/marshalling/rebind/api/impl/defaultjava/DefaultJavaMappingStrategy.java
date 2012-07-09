@@ -104,7 +104,7 @@ public class DefaultJavaMappingStrategy implements MappingStrategy {
         Class<?> arrayType = Array.newInstance(toMap.asClass(), 0).getClass();
         classStructureBuilder.privateField("EMPTY_ARRAY", arrayType).initializesWith(Stmt.newArray(toMap, 0)).finish();
 
-        classStructureBuilder.publicMethod(arrayType, "getEmptyArray")
+        classStructureBuilder.publicMethod(arrayType, "getEmptyArray", Parameter.of(MarshallingSession.class, "ctx"))
             .append(Stmt.loadClassMember("EMPTY_ARRAY").returnValue())
             .finish();
 

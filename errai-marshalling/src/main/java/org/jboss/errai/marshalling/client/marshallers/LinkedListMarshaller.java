@@ -38,7 +38,7 @@ public class LinkedListMarshaller extends AbstractCollectionMarshaller<LinkedLis
   }
   
   @Override
-  public LinkedList[] getEmptyArray() {
+  public LinkedList[] getEmptyArray(MarshallingSession ctx) {
     return EMPTY_ARRAY;
   }
 

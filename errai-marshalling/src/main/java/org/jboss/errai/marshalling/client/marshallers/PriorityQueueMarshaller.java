@@ -37,7 +37,7 @@ public class PriorityQueueMarshaller extends AbstractCollectionMarshaller<Priori
   }
   
   @Override
-  public PriorityQueue[] getEmptyArray() {
+  public PriorityQueue[] getEmptyArray(MarshallingSession ctx) {
     return EMPTY_ARRAY;
   }
 

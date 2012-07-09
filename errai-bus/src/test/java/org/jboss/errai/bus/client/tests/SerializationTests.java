@@ -545,8 +545,7 @@ public class SerializationTests extends AbstractErraiTest {
   }
 
   /**
-   * This test is disabled because it demonstrates a known limitation of Errai Marshalling.
-   * See ERRAI-339 and ERRAI-341 for details.
+   * Regression test for ERRAI-339
    */
   public void testPortableArray() {
     runAfterInit(new Runnable() {
@@ -567,6 +566,28 @@ public class SerializationTests extends AbstractErraiTest {
     });
   }
 
+  /**
+   * Regression test for ERRAI-339. Passes over time :).
+   */
+  public void testPortableFourDimensionalArray() {
+    runAfterInit(new Runnable() {
+      @Override
+      public void run() {
+        final NeverDeclareAnArrayOfThisType[][][][] expected = new NeverDeclareAnArrayOfThisType[1][1][2][1];
+        expected[0][0][1][0] = new NeverDeclareAnArrayOfThisType(); // initializing one randomly chosen element
+
+        MessageBuilder.createCall(new RemoteCallback<NeverDeclareAnArrayOfThisType[][][][]>() {
+          @Override
+          public void callback(NeverDeclareAnArrayOfThisType[][][][] response) {
+            assertNotNull(response);
+            assertEquals(1, response.length);
+            assertNotNull(response[0][0][1][0]);
+            finishTest();
+          }
+        }, TestSerializationRPCService.class).testPortableMultidimensionalArray(expected);
+      }
+    });
+  }
   public void testEntitySerialization() {
     runAfterInit(new Runnable() {
       @Override

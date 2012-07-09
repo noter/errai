@@ -47,7 +47,7 @@ public class SortedMapMarshaller extends MapMarshaller<SortedMap> {
   }
   
   @Override
-  public SortedMap[] getEmptyArray() {
+  public SortedMap[] getEmptyArray(MarshallingSession ctx) {
     return EMPTY_ARRAY;
   }
 }

@@ -1,5 +1,6 @@
 package org.jboss.errai.marshalling.server;
 
+import java.lang.reflect.Array;
 import java.util.List;
 import java.util.Map;
 
@@ -48,6 +49,26 @@ public class DecodingSession extends AbstractMarshallingSession {
     else {
       return jsonValue.getRawValue().getClass().getName();
     }
+  }
+
+  @Override
+  public Object addArrayDimension(Object emptyArray) {
+    return staticAddArrayDimension(emptyArray);
+  }
+
+  static Object staticAddArrayDimension(Object emptyArray) {
+    Class<?> arrayClass = emptyArray.getClass();
+    int dims = 0;
+    while (arrayClass.isArray()) {
+      arrayClass = arrayClass.getComponentType();
+      dims++;
+    }
+    
+    // plus one more dimension
+    dims++;
+    
+    int[] dimSizeArray = new int[dims];
+    return Array.newInstance(arrayClass, dimSizeArray);
   }
 }
 

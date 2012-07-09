@@ -52,7 +52,7 @@ public class MapMarshaller<T extends Map> implements Marshaller<T> {
   }
 
   @Override
-  public T[] getEmptyArray() {
+  public T[] getEmptyArray(MarshallingSession ctx) {
     return (T[]) EMPTY_ARRAY;
   }
   

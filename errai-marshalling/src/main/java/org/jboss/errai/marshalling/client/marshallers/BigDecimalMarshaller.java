@@ -39,7 +39,7 @@ public class BigDecimalMarshaller extends AbstractNullableMarshaller<BigDecimal>
   }
   
   @Override
-  public BigDecimal[] getEmptyArray() {
+  public BigDecimal[] getEmptyArray(MarshallingSession ctx) {
     return EMPTY_ARRAY;
   }
 

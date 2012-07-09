@@ -28,7 +28,7 @@ public class LinkedMapMarshaller extends MapMarshaller<LinkedHashMap> {
   }
 
   @Override
-  public LinkedHashMap[] getEmptyArray() {
+  public LinkedHashMap[] getEmptyArray(MarshallingSession ctx) {
     return EMPTY_ARRAY;
   }
 }

@@ -41,7 +41,7 @@ public class QueueMarshaller extends AbstractCollectionMarshaller<Queue> {
   }
   
   @Override
-  public Queue[] getEmptyArray() {
+  public Queue[] getEmptyArray(MarshallingSession ctx) {
     return EMPTY_ARRAY;
   }
 

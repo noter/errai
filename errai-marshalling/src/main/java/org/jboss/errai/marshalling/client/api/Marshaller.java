@@ -30,8 +30,9 @@ public interface Marshaller<T> {
 
   /**
    * Returns an empty array of the type handled by this marshaller. Useful in conjunction with {@code List.toArray(T[])}.
+   * @param ctx TODO
    * 
    * @return a one-dimensional zero-length array of the type handled by this marshaller.
    */
-  T[] getEmptyArray();
+  T[] getEmptyArray(MarshallingSession ctx);
 }

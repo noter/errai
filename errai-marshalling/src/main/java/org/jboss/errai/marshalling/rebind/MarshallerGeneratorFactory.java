@@ -351,7 +351,7 @@ public class MarshallerGeneratorFactory {
             .finish();
     
     Class<?> arrayOfArrayType = Array.newInstance(arrayType.asClass(), 0).getClass();
-    classStructureBuilder.publicMethod(arrayOfArrayType, "getEmptyArray")
+    classStructureBuilder.publicMethod(arrayOfArrayType, "getEmptyArray", Parameter.of(MarshallingSession.class, "ctx"))
             .append(Stmt.throw_(UnsupportedOperationException.class, "Not implemented!"))
             .finish();
 

@@ -37,7 +37,7 @@ public class LongMarshaller extends AbstractNumberMarshaller<Long> {
   }
   
   @Override
-  public Long[] getEmptyArray() {
+  public Long[] getEmptyArray(MarshallingSession ctx) {
     return EMPTY_ARRAY;
   }
 

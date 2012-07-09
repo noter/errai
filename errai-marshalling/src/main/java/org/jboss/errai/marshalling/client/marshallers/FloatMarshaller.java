@@ -36,7 +36,7 @@ public class FloatMarshaller extends AbstractNumberMarshaller<Float> {
   }
 
   @Override
-  public Float[] getEmptyArray() {
+  public Float[] getEmptyArray(MarshallingSession ctx) {
     return EMPTY_ARRAY;
   }
   

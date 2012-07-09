@@ -114,7 +114,7 @@ public class ErraiProtocolEnvelopeNoAutoMarshaller implements Marshaller<Map<Str
   }
 
   @Override
-  public Map<String, Object>[] getEmptyArray() {
+  public Map<String, Object>[] getEmptyArray(MarshallingSession ctx) {
     throw new UnsupportedOperationException("Not implemented!");
   }
 

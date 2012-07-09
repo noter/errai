@@ -29,6 +29,7 @@ import org.jboss.errai.marshalling.client.protocols.MarshallingSessionProvider;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.json.client.JSONParser;
 
 /**
@@ -134,6 +135,49 @@ public class MarshallerFramework implements EntryPoint {
       }
       throw new RuntimeException("unknown type: cannot reverse map value to concrete Java type: " + o);
     }
+    
+    @Override
+    public Object addArrayDimension(Object emptyArray) {
+      Class<?> arrayClass = emptyArray.getClass();
+      int dims = 0;
+      while (arrayClass.isArray()) {
+        arrayClass = arrayClass.getComponentType();
+        dims++;
+      }
+      
+      // plus one more dimension
+      dims++;
+
+      Class<?>[] arrayClasses = new Class[dims];
+      JavaScriptObject[] castableTypeMaps = new JavaScriptObject[dims];
+      int[] queryIdExprs = new int[dims]; 
+      int[] dimExprs = new int[dims];
+      for (int i = 0; i < dims; i++) {
+        arrayClasses[i] = arrayClass;
+        castableTypeMaps[i] = getCastableTypeMap(emptyArray);
+        queryIdExprs[i] = getQueryId(emptyArray);
+        dimExprs[i] = 0;
+      }
+      
+      int seedType = 0; // FIXME this will only work for non-primitive values
+      return initDims(arrayClasses, castableTypeMaps, queryIdExprs, dimExprs, dims, seedType);
+    }
+
+    private native int getQueryId(Object emptyArray) /*-{
+      var queryId = emptyArray.@com.google.gwt.lang.Array::queryId;
+      @java.lang.System::out.@java.io.PrintStream::println(Ljava/lang/String;)("The queryId is " + queryId); 
+      return queryId;
+    }-*/;
+
+    private native JavaScriptObject getCastableTypeMap(Object emptyArray) /*-{
+      return null;//return @com.google.gwt.lang.Util::getCastableTypeMap(Ljava/lang/Object;)(emptyArray);
+    }-*/;
+
+    public native Object initDims(Class<?> arrayClasses[], 
+        JavaScriptObject[] castableTypeMapExprs, int[] queryIdExprs, 
+        int[] dimExprs, int count, int seedType) /*-{
+      return @com.google.gwt.lang.Array::initDims([Ljava/lang/Class;[Lcom/google/gwt/core/client/JavaScriptObject;[I[III)();;
+    }-*/;
   }
 
   public static MarshallerFactory getMarshallerFactory() {

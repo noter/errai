@@ -76,6 +76,7 @@ public interface TestSerializationRPCService {
 
   public NeverDeclareAnArrayOfThisType[] testPortableArray(NeverDeclareAnArrayOfThisType[] expected);
 
+  public NeverDeclareAnArrayOfThisType[][][][] testPortableMultidimensionalArray(NeverDeclareAnArrayOfThisType[][][][] expected);
 
   public List<Long> listOfLong(List<Long> list);
 

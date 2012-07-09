@@ -36,7 +36,7 @@ public class IntegerMarshaller extends AbstractNumberMarshaller<Integer> {
   }
 
   @Override
-  public Integer[] getEmptyArray() {
+  public Integer[] getEmptyArray(MarshallingSession ctx) {
     return EMPTY_ARRAY;
   }
 

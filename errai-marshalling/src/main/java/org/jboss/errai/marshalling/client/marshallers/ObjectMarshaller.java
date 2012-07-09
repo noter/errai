@@ -43,7 +43,7 @@ public class ObjectMarshaller extends AbstractNullableMarshaller<Object> {
   }
   
   @Override
-  public Object[] getEmptyArray() {
+  public Object[] getEmptyArray(MarshallingSession ctx) {
     return EMPTY_ARRAY;
   }
 

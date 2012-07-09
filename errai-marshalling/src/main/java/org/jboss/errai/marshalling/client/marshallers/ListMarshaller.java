@@ -46,7 +46,7 @@ public class ListMarshaller extends AbstractCollectionMarshaller<List> {
   }
 
   @Override
-  public List[] getEmptyArray() {
+  public List[] getEmptyArray(MarshallingSession ctx) {
     return EMPTY_ARRAY;
   }
   

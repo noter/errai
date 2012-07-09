@@ -37,7 +37,7 @@ public class CharacterMarshaller extends AbstractNullableMarshaller<Character> {
   }
 
   @Override
-  public Character[] getEmptyArray() {
+  public Character[] getEmptyArray(MarshallingSession ctx) {
     return EMPTY_ARRAY;
   }
   

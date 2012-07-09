@@ -14,7 +14,7 @@ import org.jboss.errai.marshalling.client.marshallers.ListMarshaller;
  * @author Christian Sadilek <csadilek@redhat.com>
  * @author Jonathan Fuerth <jfuerth@gmail.com>
  */
-public class ArrayMarshallerWrapper extends AbstractNullableMarshaller<Object> {
+public class ArrayMarshallerWrapper<T> extends AbstractNullableMarshaller<T> {
 
   private final Marshaller<?> wrappedMarshaller;
   
@@ -26,14 +26,14 @@ public class ArrayMarshallerWrapper extends AbstractNullableMarshaller<Object> {
    * Throws UnsupportedOperationException.
    */
   @Override
-  public Class<Object> getTypeHandled() {
+  public Class<T> getTypeHandled() {
     throw new UnsupportedOperationException("Not implemented");
   }
 
   @Override
-  public Object doNotNullDemarshall(EJValue o, MarshallingSession ctx) {
+  public T doNotNullDemarshall(EJValue o, MarshallingSession ctx) {
     List<?> values = ListMarshaller.INSTANCE.demarshall(o, ctx);
-    return values.toArray(wrappedMarshaller.getEmptyArray());
+    return (T) values.toArray(wrappedMarshaller.getEmptyArray(ctx));
   }
 
   @Override
@@ -43,7 +43,7 @@ public class ArrayMarshallerWrapper extends AbstractNullableMarshaller<Object> {
   }
 
   @Override
-  public Object[] getEmptyArray() {
-    throw new UnsupportedOperationException("Not implemented, but should create an array with n+1 dimensions");
+  public T[] getEmptyArray(MarshallingSession ctx) {
+    return (T[]) ctx.addArrayDimension(wrappedMarshaller.getEmptyArray(ctx));
   }
 }

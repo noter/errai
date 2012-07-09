@@ -40,7 +40,7 @@ public class SortedSetMarshaller extends AbstractCollectionMarshaller<SortedSet>
   }
 
   @Override
-  public SortedSet[] getEmptyArray() {
+  public SortedSet[] getEmptyArray(MarshallingSession ctx) {
     return EMPTY_ARRAY;
   }
   

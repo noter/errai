@@ -73,7 +73,7 @@ public class DefaultDefinitionMarshaller implements ServerMarshaller<Object> {
   }
   
   @Override
-  public Object[] getEmptyArray() {
+  public Object[] getEmptyArray(MarshallingSession ctx) {
     return (Object[]) Array.newInstance(getTypeHandled(), 0);
   }
 

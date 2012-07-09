@@ -66,7 +66,7 @@ public class MarshallUtil {
       }
 
       @Override
-      public Object[] getEmptyArray() {
+      public Object[] getEmptyArray(MarshallingSession ctx) {
         throw new UnsupportedOperationException("Not implemented!");
       }
     };

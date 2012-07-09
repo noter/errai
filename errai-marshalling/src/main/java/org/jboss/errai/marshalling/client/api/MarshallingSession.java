@@ -16,7 +16,6 @@
 
 package org.jboss.errai.marshalling.client.api;
 
-import org.jboss.errai.marshalling.client.api.json.EJValue;
 
 /**
  * @author Mike Brock <cbrock@redhat.com>
@@ -39,4 +38,17 @@ public interface MarshallingSession {
   public String getObjectHash(Object o);
 
   public boolean isEncoded(Object ref);
+
+  /**
+   * Returns a 0-length array with one more dimension than the given array. For example, for a parameter value of
+   * {@code int[0][0]}, the return value will be {@code int[0][0][0]}.
+   * <p>
+   * This method is used by the {@link ArrayMarshallerWrapper} in order to create arrays of the correct runtime type.
+   * 
+   * @param emptyArray
+   *          An array of any component type with any number of dimensions. Must not be null.
+   * @return An array of n+1 dimensions (where n is the number of dimensions on the given array), each dimension having
+   *         size 0.
+   */
+  public Object addArrayDimension(Object emptyArray);
 }

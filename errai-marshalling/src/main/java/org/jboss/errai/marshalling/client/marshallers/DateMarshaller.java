@@ -38,7 +38,7 @@ public class DateMarshaller extends AbstractNullableMarshaller<Date> {
   }
 
   @Override
-  public Date[] getEmptyArray() {
+  public Date[] getEmptyArray(MarshallingSession ctx) {
     return EMPTY_ARRAY;
   }
   

@@ -38,7 +38,7 @@ public class StringMarshaller extends AbstractNullableMarshaller<String> {
   }
   
   @Override
-  public String[] getEmptyArray() {
+  public String[] getEmptyArray(MarshallingSession ctx) {
     return EMPTY_ARRAY;
   }
 

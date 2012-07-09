@@ -70,7 +70,7 @@ public class DefaultEnumMarshaller implements Marshaller<Enum> {
   }
 
   @Override
-  public Enum[] getEmptyArray() {
+  public Enum[] getEmptyArray(MarshallingSession ctx) {
     return (Enum[]) Array.newInstance(enumType, 0);
   }
 

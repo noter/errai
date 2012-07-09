@@ -47,4 +47,9 @@ public class EncodingSession extends AbstractMarshallingSession {
       return o.getClass().getName();
     }
   }
+  
+  @Override
+  public Object addArrayDimension(Object emptyArray) {
+    return DecodingSession.staticAddArrayDimension(emptyArray);
+  }
 }

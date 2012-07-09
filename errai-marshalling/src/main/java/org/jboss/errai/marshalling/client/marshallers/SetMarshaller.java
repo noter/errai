@@ -42,7 +42,7 @@ public class SetMarshaller extends AbstractCollectionMarshaller<Set> {
   }
 
   @Override
-  public Set[] getEmptyArray() {
+  public Set[] getEmptyArray(MarshallingSession ctx) {
     return EMPTY_ARRAY;
   }
   

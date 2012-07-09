@@ -36,7 +36,7 @@ public class ByteMarshaller extends AbstractNumberMarshaller<Byte> {
   }
 
   @Override
-  public Byte[] getEmptyArray() {
+  public Byte[] getEmptyArray(MarshallingSession ctx) {
     return EMPTY_ARRAY;
   }
 

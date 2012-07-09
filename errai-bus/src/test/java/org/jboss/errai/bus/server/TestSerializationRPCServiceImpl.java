@@ -154,6 +154,12 @@ public class TestSerializationRPCServiceImpl implements TestSerializationRPCServ
   }
 
   @Override
+  public NeverDeclareAnArrayOfThisType[][][][] testPortableMultidimensionalArray(
+      NeverDeclareAnArrayOfThisType[][][][] p) {
+    return p;
+  }
+  
+  @Override
   public List<Long> listOfLong(List<Long> list) {
     return list;
   }

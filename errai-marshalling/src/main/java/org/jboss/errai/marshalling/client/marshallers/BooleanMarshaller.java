@@ -37,7 +37,7 @@ public class BooleanMarshaller extends AbstractNullableMarshaller<Boolean> {
   }
 
   @Override
-  public Boolean[] getEmptyArray() {
+  public Boolean[] getEmptyArray(MarshallingSession ctx) {
     return EMPTY_ARRAY;
   }
 

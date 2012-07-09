@@ -40,8 +40,8 @@ public class QualifyingMarshallerWrapper<T> extends AbstractNullableMarshaller<T
   }
 
   @Override
-  public T[] getEmptyArray() {
-    return delegate.getEmptyArray();
+  public T[] getEmptyArray(MarshallingSession ctx) {
+    return delegate.getEmptyArray(null);
   }
   
   @Override

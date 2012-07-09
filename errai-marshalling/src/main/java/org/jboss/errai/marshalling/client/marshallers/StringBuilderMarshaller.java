@@ -40,7 +40,7 @@ public class StringBuilderMarshaller extends AbstractNullableMarshaller<StringBu
   }
 
   @Override
-  public StringBuilder[] getEmptyArray() {
+  public StringBuilder[] getEmptyArray(MarshallingSession ctx) {
     return EMPTY_ARRAY;
   }
   

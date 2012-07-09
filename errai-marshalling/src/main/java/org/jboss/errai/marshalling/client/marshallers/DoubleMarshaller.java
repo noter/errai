@@ -36,7 +36,7 @@ public class DoubleMarshaller extends AbstractNumberMarshaller<Double> {
   }
   
   @Override
-  public Double[] getEmptyArray() {
+  public Double[] getEmptyArray(MarshallingSession ctx) {
     return EMPTY_ARRAY;
   }
 

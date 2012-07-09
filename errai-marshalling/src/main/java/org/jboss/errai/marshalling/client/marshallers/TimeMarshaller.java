@@ -44,7 +44,7 @@ public class TimeMarshaller extends AbstractNullableMarshaller<Time> {
   }
   
   @Override
-  public Time[] getEmptyArray() {
+  public Time[] getEmptyArray(MarshallingSession ctx) {
     return EMPTY_ARRAY;
   }
 
